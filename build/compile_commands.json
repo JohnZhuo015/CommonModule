@@ -1,7 +1,7 @@
 [
 {
   "directory": "C:/Users/zhb15/Desktop/test/code/build",
-  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_DATE_TIME_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_NO_LIB -IC:/Users/zhb15/Desktop/test/code/build -IC:/Users/zhb15/Desktop/test/code -IC:/Users/zhb15/Desktop/test/code/include -isystem D:/Compiler/anaconda/Library/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\Test.dir\\source\\main.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\Test.dir\\source\\main.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\source\\main.cpp",
+  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_DATE_TIME_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_NO_LIB -IC:/Users/zhb15/Desktop/test/code/build -IC:/Users/zhb15/Desktop/test/code -IC:/Users/zhb15/Desktop/test/code/include -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits/include -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda/include -isystem D:/Compiler/anaconda/Library/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\Test.dir\\source\\main.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\Test.dir\\source\\main.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\source\\main.cpp",
   "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\source\\main.cpp",
   "output": "CMakeFiles\\Test.dir\\source\\main.cpp.obj"
 },
@@ -10,5 +10,11 @@
   "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -IC:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=module\\FunctionTraits\\CMakeFiles\\FunctionTraits.dir\\source\\FunctionTraits.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o module\\FunctionTraits\\CMakeFiles\\FunctionTraits.dir\\source\\FunctionTraits.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\module\\FunctionTraits\\source\\FunctionTraits.cpp",
   "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\module\\FunctionTraits\\source\\FunctionTraits.cpp",
   "output": "module\\FunctionTraits\\CMakeFiles\\FunctionTraits.dir\\source\\FunctionTraits.cpp.obj"
+},
+{
+  "directory": "C:/Users/zhb15/Desktop/test/code/build",
+  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -IC:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=module\\OverloadLambda\\CMakeFiles\\OverloadLambda.dir\\source\\OverloadLambda.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o module\\OverloadLambda\\CMakeFiles\\OverloadLambda.dir\\source\\OverloadLambda.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\module\\OverloadLambda\\source\\OverloadLambda.cpp",
+  "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\module\\OverloadLambda\\source\\OverloadLambda.cpp",
+  "output": "module\\OverloadLambda\\CMakeFiles\\OverloadLambda.dir\\source\\OverloadLambda.cpp.obj"
 }
 ]

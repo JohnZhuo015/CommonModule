@@ -16,8 +16,11 @@ file(GLOB UI_FILES ${CMAKE_SOURCE_DIR}/ui/*.ui)
 file(GLOB RESOURCE_FILE ${CMAKE_SOURCE_DIR}/resource/*.qrc)
 
 add_subdirectory(module/FunctionTraits)
+add_subdirectory(module/OverloadLambda)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${UI_FILES} ${RESOURCE_DIR})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC FunctionTraits)
+target_link_libraries(${PROJECT_NAME} PUBLIC OverloadLambda)

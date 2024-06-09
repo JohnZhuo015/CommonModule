@@ -266,6 +266,15 @@ FunctionTraits_IS_TOP_LEVEL:STATIC=OFF
 FunctionTraits_SOURCE_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/module/FunctionTraits
 
 //Value Computed by CMake
+OverloadLambda_BINARY_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda
+
+//Value Computed by CMake
+OverloadLambda_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+OverloadLambda_SOURCE_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/module/OverloadLambda
+
+//Value Computed by CMake
 Test_BINARY_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/build
 
 //Value Computed by CMake
@@ -402,7 +411,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
