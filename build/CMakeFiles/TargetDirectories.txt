@@ -1,0 +1,6 @@
+C:/Users/zhb15/Desktop/test/code/build/CMakeFiles/Test.dir
+C:/Users/zhb15/Desktop/test/code/build/CMakeFiles/edit_cache.dir
+C:/Users/zhb15/Desktop/test/code/build/CMakeFiles/rebuild_cache.dir
+C:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits/CMakeFiles/FunctionTraits.dir
+C:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits/CMakeFiles/edit_cache.dir
+C:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits/CMakeFiles/rebuild_cache.dir
