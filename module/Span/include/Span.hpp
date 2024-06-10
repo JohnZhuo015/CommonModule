@@ -2,8 +2,47 @@
 #define SPAN_HPP
 
 #include <type_traits>
-#include "SpanImplByBoost.hpp"
-#include "SpanImplBySTD.hpp"
+#include <utility>
 
+template <typename ArrayType, typename valueType = typename ArrayType::value_type>
+struct ConceptForArrayHasDataAndSizeFunction {
+    using type = std::enable_if_t<
+        std::is_convertible_v<decltype(std::declval<ArrayType>().data()), valueType *>,
+        std::enable_if_t<
+            std::is_same_v<decltype(std::declval<ArrayType>().size()), size_t>,
+            ArrayType
+        >
+    >;
+};
+
+template <typename ArrayType>
+using has_data_and_size_function_t = typename ConceptForArrayHasDataAndSizeFunction<ArrayType>::type;
+
+template <typename ValueType>
+struct Span {
+    using this_type = Span<ValueType>;
+    using this_pointer = Span<ValueType> *;
+    using value_type = ValueType;
+    using pointer = ValueType *;
+    using size_type = std::size_t;
+
+    template <size_t N>
+    explicit Span(value_type (&arr)[N])
+        : data{arr},
+          size{N} {}
+
+    template <typename ArrayType>
+    explicit Span(const has_data_and_size_function_t<ArrayType> &arr)
+        : data{arr.data()},
+          size{arr.size()} {}
+
+    template <typename ArrayType>
+    explicit Span(has_data_and_size_function_t<ArrayType> &&arr)
+        : data{std::forward<ArrayType::pointer>(arr.data())},
+          size{std::forward<ArrayType::size_type>(arr.size())} {}
+
+    pointer data;
+    size_type size;
+};
 
 #endif

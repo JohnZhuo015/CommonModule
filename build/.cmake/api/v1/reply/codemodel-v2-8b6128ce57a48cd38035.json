@@ -1,0 +1,174 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "module/FunctionTraits",
+					"jsonFile" : "directory-module.FunctionTraits-Debug-455ec178f7290ee8a323.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "module/FunctionTraits",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "module/OverloadLambda",
+					"jsonFile" : "directory-module.OverloadLambda-Debug-3ee15e3eb098a2ef705d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "module/OverloadLambda",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "module/Span",
+					"jsonFile" : "directory-module.Span-Debug-9776dc5aab9078ee0e2c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "module/Span",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Test",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "FunctionTraits",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "OverloadLambda",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "Span",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "FunctionTraits::@0d6ece86242d513ee943",
+					"jsonFile" : "target-FunctionTraits-Debug-845b5023b985040eb4c3.json",
+					"name" : "FunctionTraits",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "OverloadLambda::@985b8a72ec210113e809",
+					"jsonFile" : "target-OverloadLambda-Debug-6e976ac66e712e0c2ab8.json",
+					"name" : "OverloadLambda",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Span::@e5e158d6ab49b96523f3",
+					"jsonFile" : "target-Span-Debug-cbddb488fbebb90a4d7d.json",
+					"name" : "Span",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Test-Debug-7b2dafc103b966ec5ef3.json",
+					"name" : "Test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/zhb15/Desktop/test/code/build",
+		"source" : "C:/Users/zhb15/Desktop/test/code"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
