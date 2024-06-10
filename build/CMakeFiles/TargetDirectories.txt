@@ -7,3 +7,6 @@ C:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits/CMakeFiles/rebuild_
 C:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda/CMakeFiles/OverloadLambda.dir
 C:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda/CMakeFiles/edit_cache.dir
 C:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda/CMakeFiles/rebuild_cache.dir
+C:/Users/zhb15/Desktop/test/code/build/module/Span/CMakeFiles/Span.dir
+C:/Users/zhb15/Desktop/test/code/build/module/Span/CMakeFiles/edit_cache.dir
+C:/Users/zhb15/Desktop/test/code/build/module/Span/CMakeFiles/rebuild_cache.dir

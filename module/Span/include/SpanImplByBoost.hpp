@@ -1,0 +1,6 @@
+#ifndef SPAN_IMPLEMENT_BY_BOOST_HPP
+#define SPAN_IMPLEMENT_BY_BOOST_HPP
+
+
+
+#endif

@@ -275,6 +275,24 @@ OverloadLambda_IS_TOP_LEVEL:STATIC=OFF
 OverloadLambda_SOURCE_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/module/OverloadLambda
 
 //Value Computed by CMake
+Span_BINARY_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/build/module/Span
+
+//Value Computed by CMake
+Span_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Span_SOURCE_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/module/Span
+
+//Value Computed by CMake
+Spin_BINARY_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/build/module/Span
+
+//Value Computed by CMake
+Spin_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Spin_SOURCE_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/module/Span
+
+//Value Computed by CMake
 Test_BINARY_DIR:STATIC=C:/Users/zhb15/Desktop/test/code/build
 
 //Value Computed by CMake
@@ -411,7 +429,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
