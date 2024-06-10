@@ -1,6 +1,7 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
+#include <stdexcept>
 #include <type_traits>
 #include <utility>
 
@@ -40,6 +41,13 @@ struct Span {
     explicit Span(has_data_and_size_function_t<ArrayType> &&arr)
         : data{std::forward<ArrayType::pointer>(arr.data())},
           size{std::forward<ArrayType::size_type>(arr.size())} {}
+
+    this_type Subspan(size_type start, size_type length = size_type(-1)) {
+        if(start > this->size) {
+            throw std::out_of_range("start point out of range, by subspan");
+        }
+        return {this->data + start, std::min(length, this->size - start)};
+    }
 
     pointer data;
     size_type size;
