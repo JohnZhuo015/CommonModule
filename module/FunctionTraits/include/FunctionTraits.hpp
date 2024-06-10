@@ -10,7 +10,7 @@ struct FunctionTraits;
 
 template <typename ResultType, typename... Args>
 struct FunctionTraits<ResultType(Args...)> {
-    static constexpr const std::size_t ArgumentSize = sizeof...(Args);
+    static constexpr std::size_t ArgumentSize = sizeof...(Args);
     using result_type = ResultType;
     using function_type = ResultType(Args...);
     using stl_function_type = std::function<function_type>;
