@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/zhb15/Desktop/test/code/build/
+cmake_ninja_workdir = /home/archer/Desktop/CommonModule/build/
 # =============================================================================
 # Object build statements for EXECUTABLE target Test
 
@@ -47,15 +47,15 @@ cmake_ninja_workdir = C$:/Users/zhb15/Desktop/test/code/build/
 #############################################
 # Order-only phony target for Test
 
-build cmake_object_order_depends_target_Test: phony || cmake_object_order_depends_target_FunctionTraits cmake_object_order_depends_target_OverloadLambda cmake_object_order_depends_target_Span
+build cmake_object_order_depends_target_Test: phony || cmake_object_order_depends_target_Communicator cmake_object_order_depends_target_FunctionTraits cmake_object_order_depends_target_OverloadLambda cmake_object_order_depends_target_Span
 
-build CMakeFiles/Test.dir/source/main.cpp.obj: CXX_COMPILER__Test_unscanned_Debug C$:/Users/zhb15/Desktop/test/code/source/main.cpp || cmake_object_order_depends_target_Test
-  DEFINES = -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_DATE_TIME_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_NO_LIB
-  DEP_FILE = CMakeFiles\Test.dir\source\main.cpp.obj.d
-  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/zhb15/Desktop/test/code/build -IC:/Users/zhb15/Desktop/test/code -IC:/Users/zhb15/Desktop/test/code/include -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits/include -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda/include -IC:/Users/zhb15/Desktop/test/code/module/Span/include -isystem D:/Compiler/anaconda/Library/include
-  OBJECT_DIR = CMakeFiles\Test.dir
-  OBJECT_FILE_DIR = CMakeFiles\Test.dir\source
+build CMakeFiles/Test.dir/source/main.cpp.o: CXX_COMPILER__Test_unscanned_Debug /home/archer/Desktop/CommonModule/source/main.cpp || cmake_object_order_depends_target_Test
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD
+  DEP_FILE = CMakeFiles/Test.dir/source/main.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIE -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build -I/home/archer/Desktop/CommonModule -I/home/archer/Desktop/CommonModule/include -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include -I/home/archer/Desktop/CommonModule/module/OverloadLambda/include -I/home/archer/Desktop/CommonModule/module/Span/include -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/boost_1_73_0/build/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include
+  OBJECT_DIR = CMakeFiles/Test.dir
+  OBJECT_FILE_DIR = CMakeFiles/Test.dir/source
 
 
 # =============================================================================
@@ -63,24 +63,23 @@ build CMakeFiles/Test.dir/source/main.cpp.obj: CXX_COMPILER__Test_unscanned_Debu
 
 
 #############################################
-# Link the executable Test.exe
+# Link the executable Test
 
-build Test.exe: CXX_EXECUTABLE_LINKER__Test_Debug module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.obj module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.obj module/Span/CMakeFiles/Span.dir/source/Span.cpp.obj CMakeFiles/Test.dir/source/main.cpp.obj | D$:/Compiler/anaconda/Library/lib/libboost_thread.lib D$:/Compiler/anaconda/Library/lib/libboost_date_time.lib D$:/Compiler/anaconda/Library/lib/libboost_filesystem.lib D$:/Compiler/anaconda/Library/lib/libboost_system.lib D$:/Compiler/anaconda/Library/lib/libboost_chrono.lib D$:/Compiler/anaconda/Library/lib/libboost_atomic.lib || module/FunctionTraits/FunctionTraits module/OverloadLambda/OverloadLambda module/Span/Span
+build Test: CXX_EXECUTABLE_LINKER__Test_Debug module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.o module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.o module/Span/CMakeFiles/Span.dir/source/Span.cpp.o CMakeFiles/Test.dir/source/main.cpp.o | module/Communicator/libCommunicator.a /home/archer/Library/boost_1_73_0/build/lib/libboost_thread.so.1.73.0 /home/archer/Library/boost_1_73_0/build/lib/libboost_date_time.so.1.73.0 /home/archer/Library/boost_1_73_0/build/lib/libboost_filesystem.so.1.73.0 /home/archer/Library/boost_1_73_0/build/lib/libboost_system.so.1.73.0 /home/archer/Library/spdlog/install/lib/libspdlog.a /home/archer/Library/fmt/install/lib/libfmt.a || module/Communicator/libCommunicator.a module/FunctionTraits/FunctionTraits module/OverloadLambda/OverloadLambda module/Span/Span
   FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g
-  LINK_LIBRARIES = D:/Compiler/anaconda/Library/lib/libboost_thread.lib  D:/Compiler/anaconda/Library/lib/libboost_date_time.lib  D:/Compiler/anaconda/Library/lib/libboost_filesystem.lib  D:/Compiler/anaconda/Library/lib/libboost_system.lib  D:/Compiler/anaconda/Library/lib/libboost_chrono.lib  -lbcrypt  -lsynchronization  D:/Compiler/anaconda/Library/lib/libboost_atomic.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Test.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = Test.exe
-  TARGET_IMPLIB = libTest.dll.a
-  TARGET_PDB = Test.exe.dbg
+  LINK_LIBRARIES = -Wl,-rpath,/home/archer/Library/boost_1_73_0/build/lib  module/Communicator/libCommunicator.a  /home/archer/Library/boost_1_73_0/build/lib/libboost_thread.so.1.73.0  /home/archer/Library/boost_1_73_0/build/lib/libboost_date_time.so.1.73.0  /home/archer/Library/boost_1_73_0/build/lib/libboost_filesystem.so.1.73.0  /home/archer/Library/boost_1_73_0/build/lib/libboost_system.so.1.73.0  /home/archer/Library/spdlog/install/lib/libspdlog.a  /home/archer/Library/fmt/install/lib/libfmt.a
+  OBJECT_DIR = CMakeFiles/Test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Test
+  TARGET_PDB = Test.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /home/archer/Desktop/CommonModule/build && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -91,7 +90,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\zhb15\Desktop\test\code -BC:\Users\zhb15\Desktop\test\code\build"
+  COMMAND = cd /home/archer/Desktop/CommonModule/build && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/archer/Desktop/CommonModule -B/home/archer/Desktop/CommonModule/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -100,7 +99,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/zhb15/Desktop/test/code/CMakeLists.txt
+# /home/archer/Desktop/CommonModule/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -112,26 +111,26 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_FunctionTraits: phony || module/FunctionTraits/CMakeFiles/FunctionTraits.dir
 
-build module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.obj: CXX_COMPILER__FunctionTraits_unscanned_Debug C$:/Users/zhb15/Desktop/test/code/module/FunctionTraits/source/FunctionTraits.cpp || cmake_object_order_depends_target_FunctionTraits
-  DEP_FILE = module\FunctionTraits\CMakeFiles\FunctionTraits.dir\source\FunctionTraits.cpp.obj.d
-  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits/include
-  OBJECT_DIR = module\FunctionTraits\CMakeFiles\FunctionTraits.dir
-  OBJECT_FILE_DIR = module\FunctionTraits\CMakeFiles\FunctionTraits.dir\source
+build module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.o: CXX_COMPILER__FunctionTraits_unscanned_Debug /home/archer/Desktop/CommonModule/module/FunctionTraits/source/FunctionTraits.cpp || cmake_object_order_depends_target_FunctionTraits
+  DEP_FILE = module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/FunctionTraits -I/home/archer/Desktop/CommonModule/module/FunctionTraits -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include
+  OBJECT_DIR = module/FunctionTraits/CMakeFiles/FunctionTraits.dir
+  OBJECT_FILE_DIR = module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source
 
 
 
 #############################################
 # Object library FunctionTraits
 
-build module/FunctionTraits/FunctionTraits: phony module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.obj
+build module/FunctionTraits/FunctionTraits: phony module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.o
 
 
 #############################################
 # Utility command for edit_cache
 
 build module/FunctionTraits/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build\module\FunctionTraits && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/FunctionTraits && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -142,7 +141,7 @@ build module/FunctionTraits/edit_cache: phony module/FunctionTraits/CMakeFiles/e
 # Utility command for rebuild_cache
 
 build module/FunctionTraits/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build\module\FunctionTraits && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\zhb15\Desktop\test\code -BC:\Users\zhb15\Desktop\test\code\build"
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/FunctionTraits && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/archer/Desktop/CommonModule -B/home/archer/Desktop/CommonModule/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -151,7 +150,7 @@ build module/FunctionTraits/rebuild_cache: phony module/FunctionTraits/CMakeFile
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/zhb15/Desktop/test/code/CMakeLists.txt
+# /home/archer/Desktop/CommonModule/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -163,26 +162,26 @@ build module/FunctionTraits/rebuild_cache: phony module/FunctionTraits/CMakeFile
 
 build cmake_object_order_depends_target_OverloadLambda: phony || module/OverloadLambda/CMakeFiles/OverloadLambda.dir
 
-build module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.obj: CXX_COMPILER__OverloadLambda_unscanned_Debug C$:/Users/zhb15/Desktop/test/code/module/OverloadLambda/source/OverloadLambda.cpp || cmake_object_order_depends_target_OverloadLambda
-  DEP_FILE = module\OverloadLambda\CMakeFiles\OverloadLambda.dir\source\OverloadLambda.cpp.obj.d
-  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda/include
-  OBJECT_DIR = module\OverloadLambda\CMakeFiles\OverloadLambda.dir
-  OBJECT_FILE_DIR = module\OverloadLambda\CMakeFiles\OverloadLambda.dir\source
+build module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.o: CXX_COMPILER__OverloadLambda_unscanned_Debug /home/archer/Desktop/CommonModule/module/OverloadLambda/source/OverloadLambda.cpp || cmake_object_order_depends_target_OverloadLambda
+  DEP_FILE = module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/OverloadLambda -I/home/archer/Desktop/CommonModule/module/OverloadLambda -I/home/archer/Desktop/CommonModule/module/OverloadLambda/include
+  OBJECT_DIR = module/OverloadLambda/CMakeFiles/OverloadLambda.dir
+  OBJECT_FILE_DIR = module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source
 
 
 
 #############################################
 # Object library OverloadLambda
 
-build module/OverloadLambda/OverloadLambda: phony module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.obj
+build module/OverloadLambda/OverloadLambda: phony module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.o
 
 
 #############################################
 # Utility command for edit_cache
 
 build module/OverloadLambda/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build\module\OverloadLambda && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/OverloadLambda && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -193,7 +192,7 @@ build module/OverloadLambda/edit_cache: phony module/OverloadLambda/CMakeFiles/e
 # Utility command for rebuild_cache
 
 build module/OverloadLambda/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build\module\OverloadLambda && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\zhb15\Desktop\test\code -BC:\Users\zhb15\Desktop\test\code\build"
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/OverloadLambda && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/archer/Desktop/CommonModule -B/home/archer/Desktop/CommonModule/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -202,7 +201,7 @@ build module/OverloadLambda/rebuild_cache: phony module/OverloadLambda/CMakeFile
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/zhb15/Desktop/test/code/CMakeLists.txt
+# /home/archer/Desktop/CommonModule/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -214,26 +213,26 @@ build module/OverloadLambda/rebuild_cache: phony module/OverloadLambda/CMakeFile
 
 build cmake_object_order_depends_target_Span: phony || module/Span/CMakeFiles/Span.dir
 
-build module/Span/CMakeFiles/Span.dir/source/Span.cpp.obj: CXX_COMPILER__Span_unscanned_Debug C$:/Users/zhb15/Desktop/test/code/module/Span/source/Span.cpp || cmake_object_order_depends_target_Span
-  DEP_FILE = module\Span\CMakeFiles\Span.dir\source\Span.cpp.obj.d
-  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/zhb15/Desktop/test/code/build/module/Span -IC:/Users/zhb15/Desktop/test/code/module/Span -IC:/Users/zhb15/Desktop/test/code/module/Span/include
-  OBJECT_DIR = module\Span\CMakeFiles\Span.dir
-  OBJECT_FILE_DIR = module\Span\CMakeFiles\Span.dir\source
+build module/Span/CMakeFiles/Span.dir/source/Span.cpp.o: CXX_COMPILER__Span_unscanned_Debug /home/archer/Desktop/CommonModule/module/Span/source/Span.cpp || cmake_object_order_depends_target_Span
+  DEP_FILE = module/Span/CMakeFiles/Span.dir/source/Span.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/Span -I/home/archer/Desktop/CommonModule/module/Span -I/home/archer/Desktop/CommonModule/module/Span/include
+  OBJECT_DIR = module/Span/CMakeFiles/Span.dir
+  OBJECT_FILE_DIR = module/Span/CMakeFiles/Span.dir/source
 
 
 
 #############################################
 # Object library Span
 
-build module/Span/Span: phony module/Span/CMakeFiles/Span.dir/source/Span.cpp.obj
+build module/Span/Span: phony module/Span/CMakeFiles/Span.dir/source/Span.cpp.o
 
 
 #############################################
 # Utility command for edit_cache
 
 build module/Span/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build\module\Span && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/Span && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -244,7 +243,7 @@ build module/Span/edit_cache: phony module/Span/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build module/Span/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\zhb15\Desktop\test\code\build\module\Span && E:\SoftWare\CLion-2024-1-2\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\zhb15\Desktop\test\code -BC:\Users\zhb15\Desktop\test\code\build"
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/Span && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/archer/Desktop/CommonModule -B/home/archer/Desktop/CommonModule/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -252,7 +251,102 @@ build module/Span/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build module/Span/rebuild_cache: phony module/Span/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/archer/Desktop/CommonModule/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Communicator
+
+
+#############################################
+# Order-only phony target for Communicator
+
+build cmake_object_order_depends_target_Communicator: phony || module/Communicator/CMakeFiles/Communicator.dir
+
+build module/Communicator/CMakeFiles/Communicator.dir/source/Communicator.cpp.o: CXX_COMPILER__Communicator_unscanned_Debug /home/archer/Desktop/CommonModule/module/Communicator/source/Communicator.cpp || cmake_object_order_depends_target_Communicator
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD
+  DEP_FILE = module/Communicator/CMakeFiles/Communicator.dir/source/Communicator.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include
+  OBJECT_DIR = module/Communicator/CMakeFiles/Communicator.dir
+  OBJECT_FILE_DIR = module/Communicator/CMakeFiles/Communicator.dir/source
+
+build module/Communicator/CMakeFiles/Communicator.dir/source/CommunicatorFactory.cpp.o: CXX_COMPILER__Communicator_unscanned_Debug /home/archer/Desktop/CommonModule/module/Communicator/source/CommunicatorFactory.cpp || cmake_object_order_depends_target_Communicator
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD
+  DEP_FILE = module/Communicator/CMakeFiles/Communicator.dir/source/CommunicatorFactory.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include
+  OBJECT_DIR = module/Communicator/CMakeFiles/Communicator.dir
+  OBJECT_FILE_DIR = module/Communicator/CMakeFiles/Communicator.dir/source
+
+build module/Communicator/CMakeFiles/Communicator.dir/source/SerialPort.cpp.o: CXX_COMPILER__Communicator_unscanned_Debug /home/archer/Desktop/CommonModule/module/Communicator/source/SerialPort.cpp || cmake_object_order_depends_target_Communicator
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD
+  DEP_FILE = module/Communicator/CMakeFiles/Communicator.dir/source/SerialPort.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include
+  OBJECT_DIR = module/Communicator/CMakeFiles/Communicator.dir
+  OBJECT_FILE_DIR = module/Communicator/CMakeFiles/Communicator.dir/source
+
+build module/Communicator/CMakeFiles/Communicator.dir/source/Tcp.cpp.o: CXX_COMPILER__Communicator_unscanned_Debug /home/archer/Desktop/CommonModule/module/Communicator/source/Tcp.cpp || cmake_object_order_depends_target_Communicator
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD
+  DEP_FILE = module/Communicator/CMakeFiles/Communicator.dir/source/Tcp.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include
+  OBJECT_DIR = module/Communicator/CMakeFiles/Communicator.dir
+  OBJECT_FILE_DIR = module/Communicator/CMakeFiles/Communicator.dir/source
+
+build module/Communicator/CMakeFiles/Communicator.dir/source/Udp.cpp.o: CXX_COMPILER__Communicator_unscanned_Debug /home/archer/Desktop/CommonModule/module/Communicator/source/Udp.cpp || cmake_object_order_depends_target_Communicator
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD
+  DEP_FILE = module/Communicator/CMakeFiles/Communicator.dir/source/Udp.cpp.o.d
+  FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include
+  OBJECT_DIR = module/Communicator/CMakeFiles/Communicator.dir
+  OBJECT_FILE_DIR = module/Communicator/CMakeFiles/Communicator.dir/source
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Communicator
+
+
+#############################################
+# Link the static library module/Communicator/libCommunicator.a
+
+build module/Communicator/libCommunicator.a: CXX_STATIC_LIBRARY_LINKER__Communicator_Debug module/Communicator/CMakeFiles/Communicator.dir/source/Communicator.cpp.o module/Communicator/CMakeFiles/Communicator.dir/source/CommunicatorFactory.cpp.o module/Communicator/CMakeFiles/Communicator.dir/source/SerialPort.cpp.o module/Communicator/CMakeFiles/Communicator.dir/source/Tcp.cpp.o module/Communicator/CMakeFiles/Communicator.dir/source/Udp.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g
+  OBJECT_DIR = module/Communicator/CMakeFiles/Communicator.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = module/Communicator/libCommunicator.a
+  TARGET_PDB = Communicator.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build module/Communicator/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/Communicator && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build module/Communicator/edit_cache: phony module/Communicator/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build module/Communicator/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/archer/Desktop/CommonModule/build/module/Communicator && /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/archer/Desktop/CommonModule -B/home/archer/Desktop/CommonModule/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build module/Communicator/rebuild_cache: phony module/Communicator/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build Communicator: phony module/Communicator/libCommunicator.a
 
 build FunctionTraits: phony module/FunctionTraits/FunctionTraits
 
@@ -260,7 +354,7 @@ build OverloadLambda: phony module/OverloadLambda/OverloadLambda
 
 build Span: phony module/Span/Span
 
-build Test: phony Test.exe
+build libCommunicator.a: phony module/Communicator/libCommunicator.a
 
 # =============================================================================
 # Folder targets.
@@ -268,28 +362,35 @@ build Test: phony Test.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/zhb15/Desktop/test/code/build
+# Folder: /home/archer/Desktop/CommonModule/build
 
-build all: phony Test.exe module/FunctionTraits/all module/OverloadLambda/all module/Span/all
+build all: phony Test module/FunctionTraits/all module/OverloadLambda/all module/Span/all module/Communicator/all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits
+# Folder: /home/archer/Desktop/CommonModule/build/module/Communicator
+
+build module/Communicator/all: phony module/Communicator/libCommunicator.a
+
+# =============================================================================
+
+#############################################
+# Folder: /home/archer/Desktop/CommonModule/build/module/FunctionTraits
 
 build module/FunctionTraits/all: phony module/FunctionTraits/FunctionTraits
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda
+# Folder: /home/archer/Desktop/CommonModule/build/module/OverloadLambda
 
 build module/OverloadLambda/all: phony module/OverloadLambda/OverloadLambda
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/zhb15/Desktop/test/code/build/module/Span
+# Folder: /home/archer/Desktop/CommonModule/build/module/Span
 
 build module/Span/all: phony module/Span/Span
 
@@ -300,14 +401,14 @@ build module/Span/all: phony module/Span/Span
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/zhb15/Desktop/test/code/CMakeLists.txt C$:/Users/zhb15/Desktop/test/code/module/FunctionTraits/CMakeLists.txt C$:/Users/zhb15/Desktop/test/code/module/OverloadLambda/CMakeLists.txt C$:/Users/zhb15/Desktop/test/code/module/Span/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake D$:/Compiler/anaconda/Library/lib/cmake/Boost-1.82.0/BoostConfig.cmake D$:/Compiler/anaconda/Library/lib/cmake/Boost-1.82.0/BoostConfigVersion.cmake D$:/Compiler/anaconda/Library/lib/cmake/BoostDetectToolset-1.82.0.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/boost_atomic-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/boost_atomic-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/libboost_atomic-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/libboost_atomic-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/boost_chrono-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/boost_chrono-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/libboost_chrono-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/libboost_chrono-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/boost_date_time-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/boost_date_time-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/libboost_date_time-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/libboost_date_time-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/boost_filesystem-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/boost_filesystem-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/libboost_filesystem-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/libboost_filesystem-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_headers-1.82.0/boost_headers-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_headers-1.82.0/boost_headers-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/boost_system-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/boost_system-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/libboost_system-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/libboost_system-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/boost_thread-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/boost_thread-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/libboost_thread-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/libboost_thread-variant-static.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindBoost.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindThreads.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake
+build build.ninja: RERUN_CMAKE | /home/archer/Desktop/CommonModule/CMakeLists.txt /home/archer/Desktop/CommonModule/module/Communicator/CMakeLists.txt /home/archer/Desktop/CommonModule/module/FunctionTraits/CMakeLists.txt /home/archer/Desktop/CommonModule/module/OverloadLambda/CMakeLists.txt /home/archer/Desktop/CommonModule/module/Span/CMakeLists.txt /home/archer/Library/boost_1_73_0/build/lib/cmake/Boost-1.73.0/BoostConfig.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/Boost-1.73.0/BoostConfigVersion.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/BoostDetectToolset-1.73.0.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/boost_date_time-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/boost_date_time-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/libboost_date_time-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/libboost_date_time-variant-static.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/boost_filesystem-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/boost_filesystem-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/libboost_filesystem-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/libboost_filesystem-variant-static.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_headers-1.73.0/boost_headers-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_headers-1.73.0/boost_headers-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/boost_system-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/boost_system-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/libboost_system-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/libboost_system-variant-static.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/boost_thread-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/boost_thread-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/libboost_thread-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/libboost_thread-variant-static.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-config-version.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-config.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-targets-release.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-targets.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfig.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfigTargets-release.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfigTargets.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfigVersion.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindBoost.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/zhb15/Desktop/test/code/CMakeLists.txt C$:/Users/zhb15/Desktop/test/code/module/FunctionTraits/CMakeLists.txt C$:/Users/zhb15/Desktop/test/code/module/OverloadLambda/CMakeLists.txt C$:/Users/zhb15/Desktop/test/code/module/Span/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake D$:/Compiler/anaconda/Library/lib/cmake/Boost-1.82.0/BoostConfig.cmake D$:/Compiler/anaconda/Library/lib/cmake/Boost-1.82.0/BoostConfigVersion.cmake D$:/Compiler/anaconda/Library/lib/cmake/BoostDetectToolset-1.82.0.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/boost_atomic-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/boost_atomic-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/libboost_atomic-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_atomic-1.82.0/libboost_atomic-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/boost_chrono-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/boost_chrono-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/libboost_chrono-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_chrono-1.82.0/libboost_chrono-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/boost_date_time-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/boost_date_time-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/libboost_date_time-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_date_time-1.82.0/libboost_date_time-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/boost_filesystem-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/boost_filesystem-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/libboost_filesystem-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_filesystem-1.82.0/libboost_filesystem-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_headers-1.82.0/boost_headers-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_headers-1.82.0/boost_headers-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/boost_system-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/boost_system-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/libboost_system-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_system-1.82.0/libboost_system-variant-static.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/boost_thread-config-version.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/boost_thread-config.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/libboost_thread-variant-shared.cmake D$:/Compiler/anaconda/Library/lib/cmake/boost_thread-1.82.0/libboost_thread-variant-static.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindBoost.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/FindThreads.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake E$:/SoftWare/CLion-2024-1-2/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake: phony
+build /home/archer/Desktop/CommonModule/CMakeLists.txt /home/archer/Desktop/CommonModule/module/Communicator/CMakeLists.txt /home/archer/Desktop/CommonModule/module/FunctionTraits/CMakeLists.txt /home/archer/Desktop/CommonModule/module/OverloadLambda/CMakeLists.txt /home/archer/Desktop/CommonModule/module/Span/CMakeLists.txt /home/archer/Library/boost_1_73_0/build/lib/cmake/Boost-1.73.0/BoostConfig.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/Boost-1.73.0/BoostConfigVersion.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/BoostDetectToolset-1.73.0.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/boost_date_time-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/boost_date_time-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/libboost_date_time-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_date_time-1.73.0/libboost_date_time-variant-static.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/boost_filesystem-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/boost_filesystem-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/libboost_filesystem-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_filesystem-1.73.0/libboost_filesystem-variant-static.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_headers-1.73.0/boost_headers-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_headers-1.73.0/boost_headers-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/boost_system-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/boost_system-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/libboost_system-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_system-1.73.0/libboost_system-variant-static.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/boost_thread-config-version.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/boost_thread-config.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/libboost_thread-variant-shared.cmake /home/archer/Library/boost_1_73_0/build/lib/cmake/boost_thread-1.73.0/libboost_thread-variant-static.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-config-version.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-config.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-targets-release.cmake /home/archer/Library/fmt/install/lib/cmake/fmt/fmt-targets.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfig.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfigTargets-release.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfigTargets.cmake /home/archer/Library/spdlog/install/lib/cmake/spdlog/spdlogConfigVersion.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindBoost.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindThreads.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /newDisk/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
 
 
 #############################################

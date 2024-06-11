@@ -1,26 +1,56 @@
 [
 {
-  "directory": "C:/Users/zhb15/Desktop/test/code/build",
-  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_DATE_TIME_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_NO_LIB -IC:/Users/zhb15/Desktop/test/code/build -IC:/Users/zhb15/Desktop/test/code -IC:/Users/zhb15/Desktop/test/code/include -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits/include -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda/include -IC:/Users/zhb15/Desktop/test/code/module/Span/include -isystem D:/Compiler/anaconda/Library/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\Test.dir\\source\\main.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\Test.dir\\source\\main.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\source\\main.cpp",
-  "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\source\\main.cpp",
-  "output": "CMakeFiles\\Test.dir\\source\\main.cpp.obj"
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build -I/home/archer/Desktop/CommonModule -I/home/archer/Desktop/CommonModule/include -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include -I/home/archer/Desktop/CommonModule/module/OverloadLambda/include -I/home/archer/Desktop/CommonModule/module/Span/include -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/boost_1_73_0/build/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIE -fdiagnostics-color=always -o CMakeFiles/Test.dir/source/main.cpp.o -c /home/archer/Desktop/CommonModule/source/main.cpp",
+  "file": "/home/archer/Desktop/CommonModule/source/main.cpp",
+  "output": "CMakeFiles/Test.dir/source/main.cpp.o"
 },
 {
-  "directory": "C:/Users/zhb15/Desktop/test/code/build",
-  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -IC:/Users/zhb15/Desktop/test/code/build/module/FunctionTraits -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits -IC:/Users/zhb15/Desktop/test/code/module/FunctionTraits/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=module\\FunctionTraits\\CMakeFiles\\FunctionTraits.dir\\source\\FunctionTraits.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o module\\FunctionTraits\\CMakeFiles\\FunctionTraits.dir\\source\\FunctionTraits.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\module\\FunctionTraits\\source\\FunctionTraits.cpp",
-  "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\module\\FunctionTraits\\source\\FunctionTraits.cpp",
-  "output": "module\\FunctionTraits\\CMakeFiles\\FunctionTraits.dir\\source\\FunctionTraits.cpp.obj"
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/FunctionTraits -I/home/archer/Desktop/CommonModule/module/FunctionTraits -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.o -c /home/archer/Desktop/CommonModule/module/FunctionTraits/source/FunctionTraits.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/FunctionTraits/source/FunctionTraits.cpp",
+  "output": "module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.o"
 },
 {
-  "directory": "C:/Users/zhb15/Desktop/test/code/build",
-  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -IC:/Users/zhb15/Desktop/test/code/build/module/OverloadLambda -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda -IC:/Users/zhb15/Desktop/test/code/module/OverloadLambda/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=module\\OverloadLambda\\CMakeFiles\\OverloadLambda.dir\\source\\OverloadLambda.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o module\\OverloadLambda\\CMakeFiles\\OverloadLambda.dir\\source\\OverloadLambda.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\module\\OverloadLambda\\source\\OverloadLambda.cpp",
-  "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\module\\OverloadLambda\\source\\OverloadLambda.cpp",
-  "output": "module\\OverloadLambda\\CMakeFiles\\OverloadLambda.dir\\source\\OverloadLambda.cpp.obj"
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/OverloadLambda -I/home/archer/Desktop/CommonModule/module/OverloadLambda -I/home/archer/Desktop/CommonModule/module/OverloadLambda/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.o -c /home/archer/Desktop/CommonModule/module/OverloadLambda/source/OverloadLambda.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/OverloadLambda/source/OverloadLambda.cpp",
+  "output": "module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.o"
 },
 {
-  "directory": "C:/Users/zhb15/Desktop/test/code/build",
-  "command": "E:\\MSYS2\\mingw64\\bin\\c++.exe -IC:/Users/zhb15/Desktop/test/code/build/module/Span -IC:/Users/zhb15/Desktop/test/code/module/Span -IC:/Users/zhb15/Desktop/test/code/module/Span/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=module\\Span\\CMakeFiles\\Span.dir\\source\\Span.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o module\\Span\\CMakeFiles\\Span.dir\\source\\Span.cpp.obj -c C:\\Users\\zhb15\\Desktop\\test\\code\\module\\Span\\source\\Span.cpp",
-  "file": "C:\\Users\\zhb15\\Desktop\\test\\code\\module\\Span\\source\\Span.cpp",
-  "output": "module\\Span\\CMakeFiles\\Span.dir\\source\\Span.cpp.obj"
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/Span -I/home/archer/Desktop/CommonModule/module/Span -I/home/archer/Desktop/CommonModule/module/Span/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/Span/CMakeFiles/Span.dir/source/Span.cpp.o -c /home/archer/Desktop/CommonModule/module/Span/source/Span.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Span/source/Span.cpp",
+  "output": "module/Span/CMakeFiles/Span.dir/source/Span.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always -o module/Communicator/CMakeFiles/Communicator.dir/source/Communicator.cpp.o -c /home/archer/Desktop/CommonModule/module/Communicator/source/Communicator.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Communicator/source/Communicator.cpp",
+  "output": "module/Communicator/CMakeFiles/Communicator.dir/source/Communicator.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always -o module/Communicator/CMakeFiles/Communicator.dir/source/CommunicatorFactory.cpp.o -c /home/archer/Desktop/CommonModule/module/Communicator/source/CommunicatorFactory.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Communicator/source/CommunicatorFactory.cpp",
+  "output": "module/Communicator/CMakeFiles/Communicator.dir/source/CommunicatorFactory.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always -o module/Communicator/CMakeFiles/Communicator.dir/source/SerialPort.cpp.o -c /home/archer/Desktop/CommonModule/module/Communicator/source/SerialPort.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Communicator/source/SerialPort.cpp",
+  "output": "module/Communicator/CMakeFiles/Communicator.dir/source/SerialPort.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always -o module/Communicator/CMakeFiles/Communicator.dir/source/Tcp.cpp.o -c /home/archer/Desktop/CommonModule/module/Communicator/source/Tcp.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Communicator/source/Tcp.cpp",
+  "output": "module/Communicator/CMakeFiles/Communicator.dir/source/Tcp.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator -I/home/archer/Desktop/CommonModule/module/Communicator/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include -isystem /home/archer/Library/boost_1_73_0/build/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++14 -fPIC -fdiagnostics-color=always -o module/Communicator/CMakeFiles/Communicator.dir/source/Udp.cpp.o -c /home/archer/Desktop/CommonModule/module/Communicator/source/Udp.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Communicator/source/Udp.cpp",
+  "output": "module/Communicator/CMakeFiles/Communicator.dir/source/Udp.cpp.o"
 }
 ]

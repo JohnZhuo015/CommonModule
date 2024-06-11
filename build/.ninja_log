@@ -1,20 +1,5 @@
-# ninja log v6
+# ninja log v5
 34	315	7397020893747469	module/OverloadLambda/CMakeFiles/OverloadLambda.dir/source/OverloadLambda.cpp.obj	db34ee06bd034824
 23	617	7397020893637481	module/FunctionTraits/CMakeFiles/FunctionTraits.dir/source/FunctionTraits.cpp.obj	c231e5251b52cbb9
 46	753	7397020893873615	module/Span/CMakeFiles/Span.dir/source/Span.cpp.obj	d6bad2afc4e57348
-9	1086	7397023953583075	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-1087	1376	7397023964355359	Test.exe	59c4e8208ff4154e
-11	959	7397026429123954	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-959	1214	7397026438613102	Test.exe	59c4e8208ff4154e
-11	976	7397026798625505	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-977	1234	7397026808289217	Test.exe	59c4e8208ff4154e
-11	993	7397026888157573	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-993	1240	7397026897978502	Test.exe	59c4e8208ff4154e
-11	1017	7397028061976264	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-1017	1263	7397028072042230	Test.exe	59c4e8208ff4154e
-12	1112	7397031320828481	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-1113	1372	7397031331841537	Test.exe	59c4e8208ff4154e
-11	1061	7397031421894146	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
-1062	1317	7397031432396369	Test.exe	59c4e8208ff4154e
-10	1057	7397031775687738	CMakeFiles/Test.dir/source/main.cpp.obj	c4b378198d69eb64
 1057	1320	7397031786162329	Test.exe	59c4e8208ff4154e
