@@ -1,0 +1,68 @@
+@startuml
+!theme crt-green
+
+enum CurlMode {
+    + {field} GET
+    + {field} POST
+    + {field} PUT
+}
+
+enum CurlResponse {
+    + {field} BODY
+    + {field} HEADER
+    + {field} HEADER_AND_BODY
+}
+
+class Curl {
+    + {method} curlPointer: std::shared_ptr<CURL>
+---
+    + {method} SetURL(url): CURLcode
+    + {method} SetHeaderList(HeaderList): CURLcode
+    + {method} Send(): CURLcode
+}
+
+interface CurlSetMode <template<CurlMode> > {
+    + {static} SetMode(curlPointer): CURLcode
+}
+
+interface CurlGetResponse <template<ROIType>> {
+    + {static} BindROI(curlPointer, Span<char>): void
+}
+
+interface CurlTimeOut <template Enable> {
+    + {static} Set(): CURLcode
+}
+
+class CurlTimeOut_ENABLE <ENABLE>
+class CurlTimeOut_DISABLE <DISABLE>
+
+class CurlGetResponse_BODY <BODY>
+class CurlGetResponse_HEADER <HEADER>
+class CurlGetResponse_HEADER_AND_BODY <HEADER_AND_BODY>
+
+class CurlSetMode_GET <GET>
+class CurlSetMode_POST <POST> {
+    + {static} SetData(Span<char>): void
+}
+class CurlSetMode_PUT <PUT> {
+    + {static} SetData(Span<char>): void
+}
+
+Curl --|> CurlSetMode
+Curl ---|> CurlGetResponse
+Curl ----|> CurlTimeOut
+
+CurlSetMode --> CurlMode
+CurlSetMode_GET ..|>  CurlSetMode
+CurlSetMode_POST ..|>  CurlSetMode
+CurlSetMode_PUT ..|>  CurlSetMode
+
+CurlGetResponse --> CurlResponse
+CurlGetResponse_BODY ..|> CurlGetResponse
+CurlGetResponse_HEADER ..|> CurlGetResponse
+CurlGetResponse_HEADER_AND_BODY ..|> CurlGetResponse
+
+CurlTimeOut_ENABLE ..|> CurlTimeOut
+CurlTimeOut_DISABLE ..|> CurlTimeOut
+
+@enduml

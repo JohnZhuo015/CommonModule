@@ -16,13 +16,15 @@ struct FunctionTraits<ResultType(Args...)> {
     using stl_function_type = std::function<function_type>;
     using function_pointer = ResultType(*)(Args...);
 
+    using tuple_type = std::tuple<std::decay_t<Args>...>;
+
     template <std::size_t ArgsIndex>
     struct Arg {
         static_assert(ArgsIndex < ArgumentSize);
-        using type = typename std::tuple_element<ArgsIndex, std::tuple<Args...> >::type;
+        using type = typename std::tuple_element<ArgsIndex, tuple_type>::type;
     };
-
-    using tuple_type = std::tuple<std::decay_t<Args>...>;
+    template <std::size_t ArgsIndex>
+    using Arg_t = typename Arg<ArgsIndex>::type;
 };
 
 template <typename ResultType, typename... Args>

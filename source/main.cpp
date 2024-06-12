@@ -1,7 +1,6 @@
 #include <iostream>
-#include "Span.hpp"
+#include "Curl.hpp"
 
 int main() {
-    char arr[10];
-    Span<char> test(arr);
+    Curl<CurlMode::GET, CurlResonse::BODY, CurlBinarySwitch::DISABLE> t;
 }

@@ -1,6 +1,6 @@
 /newDisk/clion-2024.1/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/ninja -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G Ninja -S /home/archer/Desktop/CommonModule -B /home/archer/Desktop/CommonModule/build
+-- Found Boost: /home/archer/Library/boost_1_73_0/build/lib/cmake/Boost-1.73.0/BoostConfig.cmake (found version "1.73.0") found components: thread date_time filesystem system 
 -- Found Boost: /home/archer/Library/boost_1_73_0/build/lib/cmake/Boost-1.73.0/BoostConfig.cmake (found version "1.73.0") found components: system filesystem date_time thread 
--- Found Threads: TRUE  
--- Configuring done (0.0s)
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/archer/Desktop/CommonModule/build

@@ -13,3 +13,6 @@
 /home/archer/Desktop/CommonModule/build/module/Communicator/CMakeFiles/Communicator.dir
 /home/archer/Desktop/CommonModule/build/module/Communicator/CMakeFiles/edit_cache.dir
 /home/archer/Desktop/CommonModule/build/module/Communicator/CMakeFiles/rebuild_cache.dir
+/home/archer/Desktop/CommonModule/build/module/Curl/CMakeFiles/Curl.dir
+/home/archer/Desktop/CommonModule/build/module/Curl/CMakeFiles/edit_cache.dir
+/home/archer/Desktop/CommonModule/build/module/Curl/CMakeFiles/rebuild_cache.dir
