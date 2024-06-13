@@ -16,3 +16,6 @@
 /home/archer/Desktop/CommonModule/build/module/Curl/CMakeFiles/Curl.dir
 /home/archer/Desktop/CommonModule/build/module/Curl/CMakeFiles/edit_cache.dir
 /home/archer/Desktop/CommonModule/build/module/Curl/CMakeFiles/rebuild_cache.dir
+/home/archer/Desktop/CommonModule/build/module/MetaFunction/CMakeFiles/MetaFunction.dir
+/home/archer/Desktop/CommonModule/build/module/MetaFunction/CMakeFiles/edit_cache.dir
+/home/archer/Desktop/CommonModule/build/module/MetaFunction/CMakeFiles/rebuild_cache.dir

@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/archer/Desktop/CommonModule/build",
-  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build -I/home/archer/Desktop/CommonModule -I/home/archer/Desktop/CommonModule/include -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include -I/home/archer/Desktop/CommonModule/module/OverloadLambda/include -I/home/archer/Desktop/CommonModule/module/Span/include -I/home/archer/Desktop/CommonModule/module/Communicator/include -I/home/archer/Desktop/CommonModule/module/Curl/include -isystem /home/archer/Library/boost_1_73_0/build/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIE -fdiagnostics-color=always -o CMakeFiles/Test.dir/source/main.cpp.o -c /home/archer/Desktop/CommonModule/source/main.cpp",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DSPDLOG_CLOCK_COARSE -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_PREVENT_CHILD_FD -I/home/archer/Desktop/CommonModule/build -I/home/archer/Desktop/CommonModule -I/home/archer/Desktop/CommonModule/include -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include -I/home/archer/Desktop/CommonModule/module/OverloadLambda/include -I/home/archer/Desktop/CommonModule/module/Span/include -I/home/archer/Desktop/CommonModule/module/Communicator/include -I/home/archer/Desktop/CommonModule/module/Curl/include -I/home/archer/Desktop/CommonModule/module/MetaFunction/include -isystem /home/archer/Library/boost_1_73_0/build/include -isystem /home/archer/Library/spdlog/install/include -isystem /home/archer/Library/fmt/install/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIE -fdiagnostics-color=always -o CMakeFiles/Test.dir/source/main.cpp.o -c /home/archer/Desktop/CommonModule/source/main.cpp",
   "file": "/home/archer/Desktop/CommonModule/source/main.cpp",
   "output": "CMakeFiles/Test.dir/source/main.cpp.o"
 },
@@ -22,6 +22,12 @@
   "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/Span -I/home/archer/Desktop/CommonModule/module/Span -I/home/archer/Desktop/CommonModule/module/Span/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/Span/CMakeFiles/Span.dir/source/Span.cpp.o -c /home/archer/Desktop/CommonModule/module/Span/source/Span.cpp",
   "file": "/home/archer/Desktop/CommonModule/module/Span/source/Span.cpp",
   "output": "module/Span/CMakeFiles/Span.dir/source/Span.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/Span -I/home/archer/Desktop/CommonModule/module/Span -I/home/archer/Desktop/CommonModule/module/Span/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/Span/CMakeFiles/Span.dir/source/SpanDemo_C17.cpp.o -c /home/archer/Desktop/CommonModule/module/Span/source/SpanDemo_C17.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/Span/source/SpanDemo_C17.cpp",
+  "output": "module/Span/CMakeFiles/Span.dir/source/SpanDemo_C17.cpp.o"
 },
 {
   "directory": "/home/archer/Desktop/CommonModule/build",
@@ -55,8 +61,14 @@
 },
 {
   "directory": "/home/archer/Desktop/CommonModule/build",
-  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/Curl -I/home/archer/Desktop/CommonModule/module/Curl -I/home/archer/Desktop/CommonModule/module/Curl/include -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include -I/home/archer/Desktop/CommonModule/module/Span/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/Curl/CMakeFiles/Curl.dir/source/Curl.cpp.o -c /home/archer/Desktop/CommonModule/module/Curl/source/Curl.cpp",
+  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/Curl -I/home/archer/Desktop/CommonModule/module/Curl -I/home/archer/Desktop/CommonModule/module/Curl/include -I/home/archer/Desktop/CommonModule/module/FunctionTraits/include -I/home/archer/Desktop/CommonModule/module/Span/include -I/home/archer/Desktop/CommonModule/module/MetaFunction/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/Curl/CMakeFiles/Curl.dir/source/Curl.cpp.o -c /home/archer/Desktop/CommonModule/module/Curl/source/Curl.cpp",
   "file": "/home/archer/Desktop/CommonModule/module/Curl/source/Curl.cpp",
   "output": "module/Curl/CMakeFiles/Curl.dir/source/Curl.cpp.o"
+},
+{
+  "directory": "/home/archer/Desktop/CommonModule/build",
+  "command": "/usr/bin/g++ -I/home/archer/Desktop/CommonModule/build/module/MetaFunction -I/home/archer/Desktop/CommonModule/module/MetaFunction -I/home/archer/Desktop/CommonModule/module/MetaFunction/include  -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096 -g -std=gnu++20 -fPIC -fdiagnostics-color=always -o module/MetaFunction/CMakeFiles/MetaFunction.dir/source/MetaFunction.cpp.o -c /home/archer/Desktop/CommonModule/module/MetaFunction/source/MetaFunction.cpp",
+  "file": "/home/archer/Desktop/CommonModule/module/MetaFunction/source/MetaFunction.cpp",
+  "output": "module/MetaFunction/CMakeFiles/MetaFunction.dir/source/MetaFunction.cpp.o"
 }
 ]

@@ -1,48 +1,59 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <stdexcept>
 #include <type_traits>
-#include <utility>
+#include <cstdint>
+#include <stdexcept>
 
-template <typename ArrayType, typename valueType = typename ArrayType::value_type>
-struct ConceptForArrayHasDataAndSizeFunction {
-    using type = std::enable_if_t<
-        std::is_convertible_v<decltype(std::declval<ArrayType>().data()), valueType *>,
-        std::enable_if_t<
-            std::is_same_v<decltype(std::declval<ArrayType>().size()), size_t>,
-            ArrayType
-        >
-    >;
-};
+template <typename T, typename = void>
+struct has_data: public std::false_type {};
 
-template <typename ArrayType>
-using has_data_and_size_function_t = typename ConceptForArrayHasDataAndSizeFunction<ArrayType>::type;
+template <typename T>
+struct has_data<T, std::void_t<decltype(std::declval<T>().data())> >: public std::true_type {};
 
-template <typename ValueType>
+template <typename T, typename = void>
 struct Span {
-    using this_type = Span<ValueType>;
-    using this_pointer = Span<ValueType> *;
-    using value_type = ValueType;
-    using pointer = ValueType *;
+    using pointer = decltype(std::declval<T>().data());
+    using value_type = typename std::remove_pointer<pointer>::type;
     using size_type = std::size_t;
 
-    template <size_t N>
+    explicit Span(const T &arr)
+        : data{const_cast<pointer>(arr.data())},
+          size{arr.size()} {}
+
+    explicit Span(T &&arr)
+        : data{arr.data()},
+          size{arr.size()} {}
+
+    Span Subspan(size_type start, size_type length = size_type(-1)) {
+        if(start > this->size) {
+            throw std::out_of_range("start point out of range, by subspan");
+        }
+        return {this->data + start, std::min(length, this->size - start)};
+    }
+
+    pointer data;
+    size_type size;
+};
+
+
+template <typename T>
+struct Span<T, typename std::enable_if<!has_data<T>::value && std::is_array<T>::value>::type> {
+    using value_type = typename std::remove_pointer<typename std::remove_all_extents<T>::type>::type;
+    using pointer = value_type *;
+    using size_type = std::size_t;
+
+    template <std::size_t N>
     explicit Span(value_type (&arr)[N])
         : data{arr},
           size{N} {}
 
-    template <typename ArrayType>
-    explicit Span(const has_data_and_size_function_t<ArrayType> &arr)
-        : data{arr.data()},
-          size{arr.size()} {}
+    template <std::size_t N>
+    explicit Span(const value_type (&arr)[N])
+        : data{const_cast<pointer>(arr)},
+          size{N} {}
 
-    template <typename ArrayType>
-    explicit Span(has_data_and_size_function_t<ArrayType> &&arr)
-        : data{std::forward<ArrayType::pointer>(arr.data())},
-          size{std::forward<ArrayType::size_type>(arr.size())} {}
-
-    this_type Subspan(size_type start, size_type length = size_type(-1)) {
+    Span Subspan(size_type start, size_type length = size_type(-1)) {
         if(start > this->size) {
             throw std::out_of_range("start point out of range, by subspan");
         }

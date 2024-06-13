@@ -9,7 +9,7 @@ public:
     using this_type = CurlUniqueInit;
     using this_pointer = CurlUniqueInit *;
     using pointer = std::unique_ptr<this_type>;
-private:
+public:
     explicit CurlUniqueInit()
         : CurlUniqueInit(CurlInitFlags::ALL) {}
     explicit CurlUniqueInit(CurlInitFlags::type flags)

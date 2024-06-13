@@ -272,6 +272,15 @@ FunctionTraits_IS_TOP_LEVEL:STATIC=OFF
 FunctionTraits_SOURCE_DIR:STATIC=/home/archer/Desktop/CommonModule/module/FunctionTraits
 
 //Value Computed by CMake
+MetaFunction_BINARY_DIR:STATIC=/home/archer/Desktop/CommonModule/build/module/MetaFunction
+
+//Value Computed by CMake
+MetaFunction_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+MetaFunction_SOURCE_DIR:STATIC=/home/archer/Desktop/CommonModule/module/MetaFunction
+
+//Value Computed by CMake
 OverloadLambda_BINARY_DIR:STATIC=/home/archer/Desktop/CommonModule/build/module/OverloadLambda
 
 //Value Computed by CMake
@@ -433,7 +442,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

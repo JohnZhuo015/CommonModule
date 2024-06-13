@@ -18,12 +18,12 @@ struct CurlCallBackFunc<ValueType, ReadOrWrite::Read> {
     using type = std::function<func_type::function_type>;
 
     static type Generate(Span<ValueType> span) {
-        return [span](func_type::Arg_t<0> source, func_type::Arg_t<1> elemSize, func_type::Arg_t<2> elemCount, func_type::Arg_t<3> destination) {
+        return [span](func_type::Arg_t<0> source, func_type::Arg_t<1> elemSize, func_type::Arg_t<2> elemCount, func_type::Arg_t<3> destination) mutable {
             auto upperBound = std::min(span.size, elemCount);
             std::copy(
                 reinterpret_cast<typename Span<ValueType>::pointer>(source),
                 reinterpret_cast<typename Span<ValueType>::pointer>(source) + upperBound,
-                std::back_inserter(span.data)
+                span.begin()
             );
         };
     }
@@ -35,11 +35,11 @@ struct CurlCallBackFunc<ValueType, ReadOrWrite::Write> {
     using type = std::function<func_type::function_type>;
 
     static type Generate(Span<ValueType> span) {
-        return [span](func_type::Arg_t<0> destination, func_type::Arg_t<1> elemSize, func_type::Arg_t<2> elemCount, func_type::Arg_t<3> source) {
+        return [span](func_type::Arg_t<0> destination, func_type::Arg_t<1> elemSize, func_type::Arg_t<2> elemCount, func_type::Arg_t<3> source) mutable {
             std::copy(
                 span.data,
                 span.data + span.size,
-                std::back_inserter(reinterpret_cast<typename Span<ValueType>::value_type>(destination))
+                std::begin(reinterpret_cast<typename Span<ValueType>::value_type>(destination))
             );
         };
     }

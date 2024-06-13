@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "curl/curl.h"
+#include "Span.hpp"
 
 class CurlHeaderList {
 public:
@@ -25,6 +26,15 @@ public:
     this_type &operator<<(std::string &&message) {
         curl_slist_append(this->headerLists, message.data());
         return *this;
+    }
+
+    friend this_type operator<<(const this_type &obj, Span<char> &&message) {
+        curl_slist_append(obj.headerLists, message.data);
+        return obj;
+    }
+    friend this_type operator<<(this_type &&obj, Span<char> &&message) {
+        curl_slist_append(obj.headerLists, message.data);
+        return obj;
     }
 private:
     curl_slist *headerLists {};

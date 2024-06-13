@@ -6,15 +6,37 @@
 #include "CurlInitFlags.hpp"
 #include "CurlUniqueInit.hpp"
 #include "CurlOption.hpp"
+#include "MetaFunction.hpp"
 
-template <CurlMode Mode, CurlResonse ROI, CurlBinarySwitch Switch>
+template <CurlMode Mode, CurlPacketRegion ROI, CurlBinarySwitch Switch>
 class Curl
     : public CurlSetMode<Mode>,
-      public CurlGetResponse<ROI>,
+      public CurlPacket<CurlSetMode<Mode>::PACKET_OPERATE, ROI>,
       public CurlSetTimeOut<Switch> {
 public:
     using this_type = Curl;
     using this_pointer = Curl *;
+    using function = meta_if_t<
+            ROI == CurlPacketRegion::BODY || ROI == CurlPacketRegion::HEADER,
+            typename CurlPacket<CurlSetMode<Mode>::PACKET_OPERATE, ROI>::function,
+            meta_if_t<
+                ROI == CurlPacketRegion::HEADER_AND_BODY,
+                std::pair<
+                    typename CurlPacket<CurlSetMode<Mode>::PACKET_OPERATE, ROI>::function,
+                    typename CurlPacket<CurlSetMode<Mode>::PACKET_OPERATE, ROI>::function
+                >,
+                void
+            >
+        >;
+
+    explicit Curl()
+        : Curl(CurlInitFlags::ALL) {}
+
+    explicit Curl(CurlInitFlags::type initFlags)
+        : curlUniqueInit_{CurlUniqueInit::Create(initFlags)} ,
+          curlPointer_ {curl_easy_init(), curl_easy_cleanup} {
+        CurlSetMode<Mode>::SetMode(this->curlPointer_);
+    }
 
     CURLcode SetUrl(std::string &&url) const {
         if(url.empty()) { return CURLcode::CURLE_BAD_FUNCTION_ARGUMENT; }
@@ -27,9 +49,17 @@ public:
     CURLcode Send() const {
         return curl_easy_perform(this->curlPointer_.get());
     }
+
+    void SetPacket(Span<char> &&buf) {
+        CurlPacket<CurlSetMode<Mode>::PACKET_OPERATE, ROI>::SetPacket(this->curlPointer_, std::forward<Span<char> >(buf), this->callBackFunc_);
+    }
+    void GetPacket(Span<char> &&buf) {
+        CurlPacket<CurlSetMode<Mode>::PACKET_OPERATE, ROI>::GetPacket(this->curlPointer_, std::forward<Span<char> >(buf), this->callBackFunc_);
+    }
 private:
-    CurlUniqueInit::pointer curlUniqueInit_{CurlUniqueInit::Create()};
-    curl_pointer curlPointer_ {CreateCurlPointer()};
+    CurlUniqueInit::pointer curlUniqueInit_ {};
+    curl_pointer curlPointer_ {};
+    function callBackFunc_;
 };
 
 #endif

@@ -6,9 +6,6 @@
 #include "CurlCallBackFunc.hpp"
 
 using curl_pointer = std::shared_ptr<CURL>;
-inline curl_pointer CreateCurlPointer() {
-    return std::make_shared<CURL>(curl_easy_init(), curl_easy_cleanup);
-}
 
 enum class CurlMode {
     GET,
@@ -16,7 +13,12 @@ enum class CurlMode {
     PUT
 };
 
-enum class CurlResonse {
+enum class CurlPacketOperate {
+    Set,
+    Get
+};
+
+enum class CurlPacketRegion {
     HEADER,
     BODY,
     HEADER_AND_BODY
@@ -27,8 +29,12 @@ enum class CurlBinarySwitch {
     DISABLE
 };
 
-template <CurlMode Mode = CurlMode::GET>
+using CurlTimeOutEnable = CurlBinarySwitch;
+
+template <CurlMode = CurlMode::GET>
 struct CurlSetMode {
+    static constexpr CurlPacketOperate PACKET_OPERATE = CurlPacketOperate::Get;
+
     static CURLcode SetMode(const curl_pointer &curlPointer) {
         return curl_easy_setopt(curlPointer.get(), CURLOPT_HTTPGET, 1L);
     }
@@ -36,61 +42,84 @@ struct CurlSetMode {
 
 template <>
 struct CurlSetMode<CurlMode::POST> {
+    static constexpr CurlPacketOperate PACKET_OPERATE = CurlPacketOperate::Get;
+
     static CURLcode SetMode(const curl_pointer &curlPointer) {
-        return curl_easy_setopt(curlPointer.get(), CURLOPT_HTTPGET, 1L);
+        return curl_easy_setopt(curlPointer.get(), CURLOPT_MIMEPOST, 1L);
     }
-    static void SetData(const curl_pointer &curlPointer, Span<char> buf) {
-        curl_easy_setopt(curlPointer.get(), CURLOPT_POSTFIELDSIZE, buf.size);
-        curl_easy_setopt(curlPointer.get(), CURLOPT_POSTFIELDS, buf.data);
+    // static void SetData(const curl_pointer &curlPointer, Span<char> buf) {
+    //     curl_easy_setopt(curlPointer.get(), CURLOPT_POSTFIELDSIZE, buf.size);
+    //     curl_easy_setopt(curlPointer.get(), CURLOPT_POSTFIELDS, buf.data);
+    // }
+};
+
+template <>
+struct CurlSetMode<CurlMode::PUT> {
+    static constexpr CurlPacketOperate PACKET_OPERATE = CurlPacketOperate::Set;
+
+    static CURLcode SetMode(const curl_pointer &curlPointer) {
+        return curl_easy_setopt(curlPointer.get(), CURLOPT_UPLOAD, 1L);
     }
 };
 
-template<CurlResonse ROI = CurlResonse::HEADER>
-struct CurlGetResponse {
-    using func_type = CurlCallBackFunc<char, ReadOrWrite::Read>::type;
+template <CurlPacketOperate Operate, CurlPacketRegion Region>
+struct CurlPacket {};
 
-    void BindROI(const curl_pointer &curlPointer, Span<char> buf) {
-        this->callBackFunc = CurlCallBackFunc<char, ReadOrWrite::Read>::Generate(buf);
-        curl_easy_setopt(curlPointer.get(), CURLOPT_HEADERFUNCTION, this->callBackFunc);
+template <CurlPacketRegion Region>
+struct CurlPacket<CurlPacketOperate::Set, Region> {
+    using func_type = CurlCallBackFunc<char, ReadOrWrite::Write>;
+    using function = func_type::type;
+
+    static void SetPacket(const curl_pointer &curlPointer, Span<char> buf, function &callBackFunc) {
+        callBackFunc = func_type::Generate(buf);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_READFUNCTION, callBackFunc);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_READDATA, buf.data);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_INFILESIZE_LARGE, buf.size);
+    }
+};
+
+template <>
+struct CurlPacket<CurlPacketOperate::Get, CurlPacketRegion::HEADER> {
+    using func_type = CurlCallBackFunc<char, ReadOrWrite::Read>;
+    using function = func_type::type;
+
+    static void GetPacket(const curl_pointer &curlPointer, Span<char> buf, function &callBackFunc) {
+        callBackFunc = func_type::Generate(buf);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_HEADERFUNCTION, callBackFunc);
         curl_easy_setopt(curlPointer.get(), CURLOPT_HEADERDATA, buf.data);
     }
-
-    func_type callBackFunc {};
 };
 
 template <>
-struct CurlGetResponse<CurlResonse::BODY> {
-    using func_type = CurlCallBackFunc<char, ReadOrWrite::Read>::type;
+struct CurlPacket<CurlPacketOperate::Get, CurlPacketRegion::BODY> {
+    using func_type = CurlCallBackFunc<char, ReadOrWrite::Read>;
+    using function = func_type::type;
 
-    void BindROI(const curl_pointer &curlPointer, Span<char> buf) {
-        this->callBackFunc = CurlCallBackFunc<char, ReadOrWrite::Read>::Generate(buf);
-        curl_easy_setopt(curlPointer.get(), CURLOPT_WRITEFUNCTION, this->callBackFunc);
+    static void GetPacket(const curl_pointer &curlPointer, Span<char> buf, function &callBackFunc) {
+        callBackFunc = func_type::Generate(buf);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_WRITEFUNCTION, callBackFunc);
         curl_easy_setopt(curlPointer.get(), CURLOPT_WRITEDATA, buf.data);
     }
-
-    func_type callBackFunc {};
 };
 
 template <>
-struct CurlGetResponse<CurlResonse::HEADER_AND_BODY> {
-    using func_type = CurlCallBackFunc<char, ReadOrWrite::Read>::type;
+struct CurlPacket<CurlPacketOperate::Get, CurlPacketRegion::HEADER_AND_BODY> {
+    using func_type = CurlCallBackFunc<char, ReadOrWrite::Read>;
+    using function = func_type::type;
 
-    void BindROI(const curl_pointer &curlPointer, Span<char> headerBuf, Span<char> bodyBuf) {
-        this->bodyCallBackFunc = CurlCallBackFunc<char, ReadOrWrite::Read>::Generate(bodyBuf);
-        curl_easy_setopt(curlPointer.get(), CURLOPT_WRITEFUNCTION, this->bodyCallBackFunc);
+    static void GetPacket(const curl_pointer &curlPointer, Span<char> headerBuf, Span<char> bodyBuf, std::pair<function, function> &callBackFunction) {
+        callBackFunction.first = func_type::Generate(bodyBuf);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_WRITEFUNCTION, callBackFunction.first);
 
-        this->headerCallBackFunc = CurlCallBackFunc<char, ReadOrWrite::Read>::Generate(headerBuf);
-        curl_easy_setopt(curlPointer.get(), CURLOPT_HEADERFUNCTION, this->headerCallBackFunc);
+        callBackFunction.second = func_type::Generate(headerBuf);
+        curl_easy_setopt(curlPointer.get(), CURLOPT_HEADERFUNCTION, callBackFunction.second);
 
         curl_easy_setopt(curlPointer.get(), CURLOPT_WRITEDATA, bodyBuf.data);
         curl_easy_setopt(curlPointer.get(), CURLOPT_HEADERDATA, headerBuf.data);
     }
-
-    func_type bodyCallBackFunc {};
-    func_type headerCallBackFunc {};
 };
 
-template <CurlBinarySwitch = CurlBinarySwitch::ENABLE>
+template <CurlTimeOutEnable = CurlTimeOutEnable::ENABLE>
 struct CurlSetTimeOut {
     static CURLcode SetTimeLimit(const curl_pointer &curlPointer, uint32_t limit) {
         return curl_easy_setopt(curlPointer.get(), CURLOPT_TIMEOUT, limit);
@@ -98,6 +127,6 @@ struct CurlSetTimeOut {
 };
 
 template <>
-struct CurlSetTimeOut<CurlBinarySwitch::DISABLE> {};
+struct CurlSetTimeOut<CurlTimeOutEnable::DISABLE> {};
 
 #endif
