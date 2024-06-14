@@ -41,6 +41,7 @@ struct CurlSetMode<CurlMode::POST> {
     static CURLcode SetMode(const curl_pointer &curlPointer) {
         return curl_easy_setopt(curlPointer.get(), CURLOPT_MIMEPOST, 1L);
     }
+
     static void SetData(const curl_pointer &curlPointer, Span<char> buf) {
         curl_easy_setopt(curlPointer.get(), CURLOPT_POSTFIELDSIZE, buf.size);
         curl_easy_setopt(curlPointer.get(), CURLOPT_POSTFIELDS, buf.data);

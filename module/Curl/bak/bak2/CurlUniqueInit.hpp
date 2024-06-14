@@ -1,7 +1,6 @@
 #ifndef CURL_UNIQUE_INITIALIZATION_HPP
 #define CURL_UNIQUE_INITIALIZATION_HPP
 
-#include <memory>
 #include <string>
 #include "CurlInitFlags.hpp"
 

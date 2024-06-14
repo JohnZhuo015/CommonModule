@@ -28,15 +28,15 @@ public:
         return *this;
     }
 
-    template <typename T, template<class> class C>
-    friend this_type operator<<(const this_type &obj, C<T> &&message) {
-        curl_slist_append(obj.headerLists, message.data());
+    template <typename T>
+    friend this_type operator<<(const this_type &obj, Span<T> &&message) {
+        curl_slist_append(obj.headerLists, message.data);
         return obj;
     }
 
-    template <typename T, template<class> class C>
-    friend this_type operator<<(this_type &&obj, C<T> &&message) {
-        curl_slist_append(obj.headerLists, message.data());
+    template <typename T>
+    friend this_type operator<<(this_type &&obj, Span<T> &&message) {
+        curl_slist_append(obj.headerLists, message.data);
         return obj;
     }
 private:

@@ -30,9 +30,9 @@ struct meta_if_c<std::false_type, T, F> {
 };
 
 template <bool Cond, typename T, typename F>
-using meta_if_t = meta_if<Cond, T, F>;
+using meta_if_t = typename meta_if<Cond, T, F>::type;
 
 template <typename Cond, typename T, typename F>
-using meta_if_c_t = meta_if_c<Cond, T, F>;
+using meta_if_c_t = typename meta_if_c<Cond, T, F>::type;
 
 #endif

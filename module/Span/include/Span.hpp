@@ -18,24 +18,32 @@ struct Span {
     using size_type = std::size_t;
 
     explicit Span(const T &arr)
-        : data{const_cast<pointer>(arr.data())},
-          size{arr.size()} {}
+        : data_{const_cast<pointer>(arr.data())},
+          size_{arr.size()} {}
 
     explicit Span(T &&arr)
-        : data{arr.data()},
-          size{arr.size()} {}
+        : data_{arr.data()},
+          size_{arr.size()} {}
 
-    Span Subspan(size_type start, size_type length = size_type(-1)) {
-        if(start > this->size) {
-            throw std::out_of_range("start point out of range, by subspan");
-        }
-        return {this->data + start, std::min(length, this->size - start)};
+    pointer begin() {
+        return this->data_;
     }
 
-    pointer data;
-    size_type size;
-};
+    pointer end() {
+        return this->data_ + this->size_;
+    }
 
+    pointer data() {
+        return this->data_;
+    }
+
+    size_t size() {
+        return this->size_;
+    }
+
+    pointer data_;
+    size_type size_;
+};
 
 template <typename T>
 struct Span<T, typename std::enable_if<!has_data<T>::value && std::is_array<T>::value>::type> {
@@ -45,23 +53,32 @@ struct Span<T, typename std::enable_if<!has_data<T>::value && std::is_array<T>::
 
     template <std::size_t N>
     explicit Span(value_type (&arr)[N])
-        : data{arr},
-          size{N} {}
+        : data_{arr},
+          size_{N} {}
 
     template <std::size_t N>
     explicit Span(const value_type (&arr)[N])
-        : data{const_cast<pointer>(arr)},
-          size{N} {}
+        : data_{const_cast<pointer>(arr)},
+          size_{N} {}
 
-    Span Subspan(size_type start, size_type length = size_type(-1)) {
-        if(start > this->size) {
-            throw std::out_of_range("start point out of range, by subspan");
-        }
-        return {this->data + start, std::min(length, this->size - start)};
+    pointer begin() {
+        return this->data_;
     }
 
-    pointer data;
-    size_type size;
+    pointer end() {
+        return this->data_ + this->size_;
+    }
+
+    pointer data() {
+        return this->data_;
+    }
+
+    size_t size() {
+        return this->size_;
+    }
+
+    pointer data_;
+    size_type size_;
 };
 
 #endif
