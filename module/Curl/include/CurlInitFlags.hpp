@@ -6,6 +6,7 @@
 #define MY_CONCAT_INNER(x, y) x##y
 #define MY_CONCAT(x, y) MY_CONCAT_INNER(x, y)
 
+#undef WIN32
 #define CURL_INIT_FLAGS(f) \
     f(ALL) \
     f(SSL) \

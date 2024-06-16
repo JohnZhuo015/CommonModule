@@ -1,8 +1,6 @@
-#include <iostream>
-#include <array>
-#include <vector>
-#include <string>
-#include <map>
+#ifndef SPAN_HPP
+#define SPAN_HPP
+
 #include <type_traits>
 
 template <typename ArrayType, typename valueType = typename ArrayType::value_type>
@@ -62,22 +60,4 @@ Span(T[]) -> Span<T *>;
 template <typename T>
 Span(T(&)[]) -> Span<T *>;
 
-int test_main() {
-    std::string str {};
-    std::vector<char> vec {};
-    std::array<char, 1024> arr{};
-
-    Span testStr(str);
-    Span testRStr(std::string{});
-
-    Span testVec(vec);
-    Span testRVec(std::vector<char>{});
-
-    Span testArr(arr);
-    Span testRArr(arr);
-
-    char carr[1024];
-    Span testCArr(carr);
-
-    return 0;
-}
+#endif

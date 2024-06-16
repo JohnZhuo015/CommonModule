@@ -1,84 +1,142 @@
-#ifndef SPAN_HPP
-#define SPAN_HPP
+#ifndef SPAN_VERSION_1_hpp
+#define SPAN_VERSION_1_hpp
 
 #include <type_traits>
-#include <cstdint>
 #include <stdexcept>
 
-template <typename T, typename = void>
-struct has_data: public std::false_type {};
+template <typename, typename = void>
+struct concept_has_data_function: public std::false_type { };
 
 template <typename T>
-struct has_data<T, std::void_t<decltype(std::declval<T>().data())> >: public std::true_type {};
+struct concept_has_data_function<
+    T,
+    typename std::enable_if<
+        std::is_class<T>::value,
+        typename std::enable_if<
+            std::is_pointer<decltype(std::declval<T>().data())>::value
+        >::type
+    >::type
+>: public std::true_type { };
 
-template <typename T, typename = void>
+template <typename, typename>
+struct concept_has_size_function: public std::false_type { };
+
+template <typename T>
+struct concept_has_size_function<
+    T,
+    typename std::enable_if<
+        std::is_class<T>::value,
+        typename std::enable_if<
+            std::is_same<std::size_t, decltype(std::declval<T>().size())>::value
+        >::type
+    >::type
+>: public std::true_type { };
+
+template <typename T>
+struct traits_data_type {
+    using pointer = typename std::conditional<
+        std::is_pointer<T>::value,
+        T,
+        typename std::enable_if<
+            concept_has_data_function<T>::value,
+            decltype(std::declval<T>().data())
+        >::type
+    >::type;
+    using value_type = typename std::remove_pointer<pointer>::type;
+};
+
+template <typename T, size_t N>
+struct traits_data_type<T[N]> {
+    using value_type = typename std::remove_reference<typename std::remove_cv<T>::type>::type;
+    using pointer = typename std::add_pointer<value_type>::type;
+    static constexpr std::size_t size = N;
+};
+
+template <typename T>
 struct Span {
-    using pointer = decltype(std::declval<T>().data());
+    using pointer = typename traits_data_type<T>::pointer;
     using value_type = typename std::remove_pointer<pointer>::type;
     using size_type = std::size_t;
 
     explicit Span(const T &arr)
         : data_{const_cast<pointer>(arr.data())},
-          size_{arr.size()} {}
+          size_{arr.size()} { }
 
     explicit Span(T &&arr)
         : data_{arr.data()},
-          size_{arr.size()} {}
+          size_{arr.size()} { }
 
-    pointer begin() {
+    explicit Span(pointer _data, size_type _size)
+        : data_{_data},
+          size_{_size} { }
+
+    pointer begin() noexcept {
         return this->data_;
     }
 
-    pointer end() {
+    pointer end() noexcept {
         return this->data_ + this->size_;
     }
 
-    pointer data() {
+    pointer data() const noexcept {
         return this->data_;
     }
 
-    size_t size() {
+    pointer data() noexcept {
+        return this->data_;
+    }
+
+    constexpr size_type size() const {
         return this->size_;
     }
 
-    pointer data_;
-    size_type size_;
+    auto Subspan(size_type start, size_type length = SIZE_MAX) {
+        if(start >= this->size_) {
+            throw std::out_of_range("start pointer out of range, by Subspan");
+        }
+        return Span{this->data() + start, std::min(this->size_ - start, length)};
+    }
+
+private:
+    pointer data_{};
+    size_type size_{};
 };
 
-template <typename T>
-struct Span<T, typename std::enable_if<!has_data<T>::value && std::is_array<T>::value>::type> {
-    using value_type = typename std::remove_pointer<typename std::remove_all_extents<T>::type>::type;
-    using pointer = value_type *;
+template <typename T, size_t N>
+struct Span<T[N]> {
+    using value_type = typename traits_data_type<T[N]>::value_type;
+    using pointer = typename traits_data_type<T[N]>::pointer;
     using size_type = std::size_t;
 
-    template <std::size_t N>
-    explicit Span(value_type (&arr)[N])
-        : data_{arr},
-          size_{N} {}
+    explicit Span(T (&arr)[N])
+        : data_{arr} { }
 
-    template <std::size_t N>
-    explicit Span(const value_type (&arr)[N])
-        : data_{const_cast<pointer>(arr)},
-          size_{N} {}
+    explicit Span(const T (&arr)[N])
+        : data_{arr} { }
 
-    pointer begin() {
+    pointer begin() noexcept {
         return this->data_;
     }
 
-    pointer end() {
+    pointer end() noexcept {
         return this->data_ + this->size_;
     }
 
-    pointer data() {
+    pointer data() const noexcept {
         return this->data_;
     }
 
-    size_t size() {
+    pointer data() noexcept {
+        return this->data_;
+    }
+
+    constexpr size_type size() const {
         return this->size_;
     }
 
-    pointer data_;
-    size_type size_;
+private:
+    pointer data_{};
+    static constexpr size_type size_{N};
 };
 
 #endif

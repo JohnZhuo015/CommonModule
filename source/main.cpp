@@ -1,47 +1,52 @@
-#include <iostream>
 #include <array>
+#include <iostream>
+#include <typeindex>
+#include <type_traits>
 #include <vector>
-#include <functional>
+#include <map>
 #include <cxxabi.h>
 #include "boost/type_index.hpp"
-#include "Span.hpp"
-#include "Curl.hpp"
-#include "CurlCallBackFunction.hpp"
-#include "CurlOption.hpp"
 
 #define TYPE_NAME_B(T) boost::typeindex::type_id_with_cvr<T>().pretty_name()
-#define TYPE_NAME_S(type_id) abi::__cxa_demangle(type_id.name(), nullptr, nullptr, nullptr)
+#define TYPE_NAME_S(type_id) abi::__cxa_demangle(type_id, nullptr, nullptr, nullptr)
+
+template <typename, typename = void>
+struct concept_has_data_function { };
 
 template <typename T>
-size_t CBFunction(void *src, size_t size, size_t count, void *dst) {
-    using pointer = decltype(std::declval<T>().data());
-    using value_type = std::remove_pointer_t<pointer>;
+struct concept_has_data_function<
+    T,
+    typename std::enable_if<
+        std::is_class<T>::value,
+        typename std::enable_if<
+            std::is_pointer<decltype(std::declval<T>().data())>::value
+        >::type
+    >::type
+> {
+    using type = typename std::remove_cvref<T>::type;
+    using pointer = typename std::decay<decltype(std::declval<type>().data())>::type;
+    using value_type = typename std::remove_pointer<pointer>::type;
+};
 
-    const auto &convertDst = reinterpret_cast<T *>(dst);
-    convertDst->clear();
-    std::copy((pointer)src, (pointer)src + count, std::back_inserter(*convertDst));
+template <typename, typename>
+struct concept_has_size_function { };
 
-    return size * count;
-}
-
-// void TestCurlGet() {
-//     CurlGet test;
-//     test.SetURL("https://www.baidu.com");
-//     std::string buf {}; buf.reserve(4096);
-//     std::string hbuf {}; hbuf.reserve(4096);
-//     test.GetPacketBody(buf, CBFunctionByWrite<std::string>);
-//     test.GetPacketHeader(hbuf, CBFunctionByWrite<std::string>);
-//     test.Send();
-//
-//     std::cout << "buf: " << buf << std::endl;
-//     std::cout << "header buf: " << hbuf << std::endl;
-// }
+template <typename T>
+struct concept_has_size_function<
+    T,
+    typename std::enable_if<
+        std::is_class<T>::value,
+        typename std::enable_if<
+            std::is_same<std::size_t, decltype(std::declval<T>().size())>::value
+        >::type
+    >::type
+> {
+    using type = typename std::remove_cvref<T>::type;
+    using size_type = std::size_t;
+};
 
 int main() {
-    Curl<CurlMode::GET, CurlPacketRegion::BODY> test;
-    test.SetUrl("https://www.baidu.com");
-    std::string buf {}; buf.reserve(4096);
-    test.GetPacket(buf, CBFunctionByWrite<std::string>);
-    std::cout << CurlCodeMessage(test.Send()) << '\n';
-    std::cout << "buf: " << buf << "\n";
+    char arr[1024];
+    std::cout << TYPE_NAME_B(decltype(arr)) << '\n';
+    std::cout << TYPE_NAME_B(concept_has_data_function<std::vector<int>>::type) << '\n';
 }

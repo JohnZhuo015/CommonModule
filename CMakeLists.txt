@@ -8,6 +8,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -lgomp -pthread -O2 -save-temps=obj -ftemplate-depth=4096")
 
+set(CMAKE_PREFIX_PATH $ENV{CXX_LIBRARY_CMAKE_DIR})
 find_package(Boost COMPONENTS thread date_time filesystem system REQUIRED)
 
 file(GLOB SOURCE_FILES ${CMAKE_SOURCE_DIR}/source/*.c ${CMAKE_SOURCE_DIR}/source/*.cc ${CMAKE_SOURCE_DIR}/source/*.cpp)

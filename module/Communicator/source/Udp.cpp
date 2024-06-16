@@ -1,12 +1,12 @@
 #include "Udp.hpp"
 
-#include <spdlog/sinks/rotating_file_sink.h>
+using namespace std::literals;
 
 SyncUdp::SyncUdp(boost::asio::io_service &_ioService, boost::asio::ip::udp::endpoint &&_peer)
     : ioService {_ioService},
       peerEndPoint {std::move(_peer)},
       socket {ioService},
-      syncUdpLogger {spdlog::rotating_logger_mt("sync_udp_log", "log/module/Sync/Udp.log", 1024 * 1024 * 5, 10)} { }
+      syncUdpLogger {spdlog::rotating_logger_mt("sync_udp_log", "log/module/Sync/Udp.log"s, 1024 * 1024 * 5, 10)} { }
 
 SyncUdp::SyncUdp(boost::asio::io_service &_ioService, std::string && ip, uint16_t port)
     : SyncUdp(_ioService, boost::asio::ip::udp::endpoint{boost::asio::ip::address::from_string(std::forward<std::string>(ip)), port}) { }
